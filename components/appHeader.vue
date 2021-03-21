@@ -27,7 +27,7 @@
       </ul>
     </nav>
     <nav class="nav_wrap clearfix" v-else>
-      <h1 class="logo">凌烟</h1>
+      <h1 class="logo"><a href="/" title="凌烟">凌烟</a></h1>
       <div class="menu_icon">
         <i @click="showMenu($event)" class="el-icon-menu"></i>
       </div>
