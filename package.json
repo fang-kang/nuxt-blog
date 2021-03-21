@@ -23,6 +23,7 @@
     "element-ui": "^2.15.1",
     "highlight.js": "^10.6.0",
     "htmlparser2": "^6.0.1",
+    "koa": "^2.13.1",
     "marked": "^2.0.1",
     "node-emoji": "^1.10.0",
     "nuxt": "^2.15.3",

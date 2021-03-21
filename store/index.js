@@ -131,15 +131,17 @@ export const actions = {
     const res = await service.getlinkList().catch(err => {
       console.log(err)
     })
+    console.log('获取友链',res)
     if (res && res.code === 200) {
       commit('link/GET_LINK_SUCCESS', res.data)
     }
   },
-  // 根据标签获取文章
+  // 获取分类
   async getFontCategoryList({commit, state}, params) {
     const res = await service.getFontCategoryList().catch(err => {
       console.log(err)
     })
+    // console.log('获取分类', res)
     if (res && res.code === 200) {
       commit('category/GET_CATEGORY_SUCCESS', res.data)
     }

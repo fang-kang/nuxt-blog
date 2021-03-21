@@ -363,37 +363,37 @@ export default {
         if (valid && this.urlIsCorrect) {
           let _that = this;
           let result = "";
-          let parser = new htmlparser.Parser(
-            {
-              onopentag: function (name, attribs) {
-                if (
-                  name === "script" ||
-                  name === "style" ||
-                  name === "img" ||
-                  name === "frame" ||
-                  name === "iframe"
-                ) {
-                  // alert('小朋友不乖哟，不要乱输入！')
-                }
-              },
-              ontext: function (text) {
-                result += text;
-              },
-              onclosetag: function (tagname) {
-                if (
-                  tagname === "script" ||
-                  tagname === "style" ||
-                  tagname === "frame" ||
-                  tagname === "iframe"
-                ) {
-                }
-              },
-            },
-            { decodeEntities: true }
-          );
-          parser.write(this.artComment.content);
-          parser.end();
-          this.artComment.content = result;
+          // let parser = new htmlparser.Parser(
+          //   {
+          //     onopentag: function (name, attribs) {
+          //       if (
+          //         name === "script" ||
+          //         name === "style" ||
+          //         name === "img" ||
+          //         name === "frame" ||
+          //         name === "iframe"
+          //       ) {
+          //         // alert('小朋友不乖哟，不要乱输入！')
+          //       }
+          //     },
+          //     ontext: function (text) {
+          //       result += text;
+          //     },
+          //     onclosetag: function (tagname) {
+          //       if (
+          //         tagname === "script" ||
+          //         tagname === "style" ||
+          //         tagname === "frame" ||
+          //         tagname === "iframe"
+          //       ) {
+          //       }
+          //     },
+          //   },
+          //   { decodeEntities: true }
+          // );
+          // parser.write(this.artComment.content);
+          // parser.end();
+          // this.artComment.content = result;
           if (
             !this.artComment.content ||
             !this.artComment.content.replace(/\s/g, "")

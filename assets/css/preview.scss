@@ -1,4 +1,4 @@
-#r-md-preview{
+#r-md-preview {
   padding: 15px 20px;
   box-sizing: border-box;
   color: #333;
@@ -6,33 +6,61 @@
   line-height: 24px;
   word-break: break-all;
 }
-#r-md-preview img{
+
+#r-md-preview img {
   display: block;
   margin: 0 auto;
   max-width: 100%;
   border-radius: 6px;
 }
-#r-md-preview pre{
+
+pre:after {
+  position: absolute !important;
+  top: .5em !important;
+  left: .7rem !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: #fc625d !important;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b !important;
+  content: " " !important;
+}
+
+
+#r-md-preview pre {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
+  position: relative;
+  padding-top: 2em !important;
+  padding: 20px;
   background: #272822;
   color: #ddd;
   border-radius: 6px;
+  margin: 20px 0;
+  // padding: 10px;
+  // overflow: auto;
+  // margin: 20px 0;
+  // font-size: 13px;
+  // // color: #4d4d4c;
+  // color:#ccc !important;
+  // background-color: #f6f8fa !important;
+  line-height: 1.6;
+}
+
+#r-md-preview p {
   margin: 1em 0;
 }
-#r-md-preview p{
-  margin: 1em 0;
-}
-#r-md-preview li p{
+
+#r-md-preview li p {
   margin: 0;
 }
+
 #r-md-preview h1 code,
 #r-md-preview h2 code,
 #r-md-preview h3 code,
 #r-md-preview h4 code,
 #r-md-preview h5 code,
-#r-md-preview h6 code{
+#r-md-preview h6 code {
   background-color: #fff5f5;
   color: #ff502c;
   padding: 2px 8px;
@@ -40,79 +68,96 @@
   border-radius: 3px;
   margin: 0 3px;
 }
+
 #r-md-preview h1,
 #r-md-preview h2,
 #r-md-preview h3,
 #r-md-preview h4,
 #r-md-preview h5,
-#r-md-preview h6{
+#r-md-preview h6 {
   display: block;
   font-weight: bold;
   border-bottom: 1px solid #ececec;
   padding-bottom: 10px;
 }
-#r-md-preview h1{
+
+#r-md-preview h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
-#r-md-preview h2{
+
+#r-md-preview h2 {
   font-size: 1.5em;
   margin: 0.83em 0;
 }
-#r-md-preview h3{
+
+#r-md-preview h3 {
   font-size: 1.17em;
   margin: 1em 0;
 }
-#r-md-preview h4{
+
+#r-md-preview h4 {
   margin: 1.33em 0;
 }
-#r-md-preview h5{
+
+#r-md-preview h5 {
   font-size: 0.83em;
   margin: 1.67em 0;
 }
-#r-md-preview h6{
+
+#r-md-preview h6 {
   font-size: 0.67em;
   margin: 2.33em 0;
 }
-#r-md-preview p > code,
-#r-md-preview li > code{
-  background-color: #fff5f5;
-  color: #ff502c;
-  padding: 2px 8px;
-  font-weight: bold;
-  border-radius: 3px;
-  margin: 0 3px;
-  font-style: italic;
+
+#r-md-preview p>code,
+#r-md-preview li>code {
+  // background-color: #fff5f5;
+  // color: #ff502c;
+  // padding: 2px 8px;
+  // font-weight: bold;
+  // border-radius: 3px;
+  // margin: 0 3px;
+  color: #e96900 !important;
+  background-color: #f8f8f8 !important;
+  margin: 0 2px !important;
+  padding: .25rem .4rem !important;
+  font-family: 'MONACO' !important;
 }
+
 #r-md-preview ul,
-#r-md-preview ol{
+#r-md-preview ol {
   margin: 0;
   padding-left: 40px;
 }
-#r-md-preview li{
+
+#r-md-preview li {
   padding: 8px 0;
   line-height: 24px;
 }
-#r-md-preview a{
+
+#r-md-preview a {
   color: #0269c8;
   border-bottom: 1px solid #d1e9ff;
   margin: 0 5px;
-  font-style: italic;
 }
-#r-md-preview iframe{
+
+#r-md-preview iframe {
   width: 100%;
   border-radius: 8px;
   border: 1px solid #eee;
   /*height: inherit;*/
 }
-#r-md-preview blockquote{
+
+#r-md-preview blockquote {
   border-left: 3px solid rgba(0, 0, 0, 0.4);
-  background: rgba(0, 0, 0, 0.05);
+  // background: rgba(0, 0, 0, 0.05);
   padding: 10px 10px 10px 20px;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 0;
 }
+
 #r-md-preview table {
   display: block;
   width: max-content;
@@ -122,23 +167,31 @@
   max-width: 100%;
 }
 
-#r-md-preview table thead{
+#r-md-preview table thead {
   background: #eee;
 }
-#r-md-preview table{
+
+#r-md-preview table {
   min-width: 320px;
 }
-#r-md-preview table tr{
+
+#r-md-preview table tr {
   border: 0;
   border-top: 1px solid #ccc;
 }
+
 #r-md-preview table th,
-#r-md-preview table td{
+#r-md-preview table td {
   border: 1px solid #ccc;
   padding: 5px 10px;
   min-width: 85px;
 }
+
 #r-md-preview b,
-#r-md-preview strong{
+#r-md-preview strong {
   font-weight: 7000;
+}
+
+code {
+  font-family: 'MONACO' !important;
 }

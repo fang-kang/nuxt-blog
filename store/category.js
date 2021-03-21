@@ -7,14 +7,15 @@
 export const state = () => ({
 
   // 分类列表
-  list: {},
+  list: [],
 
 
 })
 
 export const mutations = {
-  // 获取文章列表
+  // 获取分类
   GET_CATEGORY_SUCCESS(state, data) {
-    state.list = data
+    let category = data.filter(i => Number(i.total) > 0)
+    state.list = category
   },
 }

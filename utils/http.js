@@ -10,8 +10,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 axios.interceptors.request.use(
   config => {
     // const token = sessionStorage.getItem('token')
-    const token = localStorage.getItem('token')
-    token && (config.headers.token = token)
+    // const token = localStorage.getItem('token')
+    // token && (config.headers.token = token)
     return config
   },
   error => {

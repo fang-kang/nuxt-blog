@@ -98,38 +98,38 @@ export default {
     searchHandle(e) {
       let _that = this;
       let result = "";
-      let parser = new htmlparser.Parser(
-        {
-          onopentag: function (name, attribs) {
-            if (
-              name === "script" ||
-              name === "style" ||
-              name === "img" ||
-              name === "frame" ||
-              name === "iframe" ||
-              name === "link"
-            ) {
-              // alert('小朋友不乖哟，不要乱输入！')
-            }
-          },
-          ontext: function (text) {
-            result += text;
-          },
-          onclosetag: function (tagname) {
-            if (
-              tagname === "script" ||
-              tagname === "style" ||
-              tagname === "frame" ||
-              tagname === "iframe"
-            ) {
-            }
-          },
-        },
-        { decodeEntities: true }
-      );
-      parser.write(this.searchval);
-      parser.end();
-      this.searchval = result;
+      // let parser = new htmlparser.Parser(
+      //   {
+      //     onopentag: function (name, attribs) {
+      //       if (
+      //         name === "script" ||
+      //         name === "style" ||
+      //         name === "img" ||
+      //         name === "frame" ||
+      //         name === "iframe" ||
+      //         name === "link"
+      //       ) {
+      //         // alert('小朋友不乖哟，不要乱输入！')
+      //       }
+      //     },
+      //     ontext: function (text) {
+      //       result += text;
+      //     },
+      //     onclosetag: function (tagname) {
+      //       if (
+      //         tagname === "script" ||
+      //         tagname === "style" ||
+      //         tagname === "frame" ||
+      //         tagname === "iframe"
+      //       ) {
+      //       }
+      //     },
+      //   },
+      //   { decodeEntities: true }
+      // );
+      // parser.write(this.searchval);
+      // parser.end();
+      // this.searchval = result;
 
       if (this.searchval.trim().length == 0) {
         return false;
@@ -146,38 +146,38 @@ export default {
     searchHandleMob(e) {
       let _that = this;
       let result = "";
-      let parser = new htmlparser.Parser(
-        {
-          onopentag: function (name, attribs) {
-            if (
-              name === "script" ||
-              name === "style" ||
-              name === "img" ||
-              name === "frame" ||
-              name === "iframe" ||
-              name === "link"
-            ) {
-              // alert('小朋友不乖哟，不要乱输入！')
-            }
-          },
-          ontext: function (text) {
-            result += text;
-          },
-          onclosetag: function (tagname) {
-            if (
-              tagname === "script" ||
-              tagname === "style" ||
-              tagname === "frame" ||
-              tagname === "iframe"
-            ) {
-            }
-          },
-        },
-        { decodeEntities: true }
-      );
-      parser.write(this.searchval);
-      parser.end();
-      this.searchval = result;
+      // let parser = new htmlparser.Parser(
+      //   {
+      //     onopentag: function (name, attribs) {
+      //       if (
+      //         name === "script" ||
+      //         name === "style" ||
+      //         name === "img" ||
+      //         name === "frame" ||
+      //         name === "iframe" ||
+      //         name === "link"
+      //       ) {
+      //         // alert('小朋友不乖哟，不要乱输入！')
+      //       }
+      //     },
+      //     ontext: function (text) {
+      //       result += text;
+      //     },
+      //     onclosetag: function (tagname) {
+      //       if (
+      //         tagname === "script" ||
+      //         tagname === "style" ||
+      //         tagname === "frame" ||
+      //         tagname === "iframe"
+      //       ) {
+      //       }
+      //     },
+      //   },
+      //   { decodeEntities: true }
+      // );
+      // parser.write(this.searchval);
+      // parser.end();
+      // this.searchval = result;
       if (this.searchval.trim().length == 0) {
         return false;
       }

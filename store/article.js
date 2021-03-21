@@ -8,13 +8,13 @@ export const state = () => ({
 
   // 文章列表
   list: {},
-  detail:{},
-  hot:[],
-  artByTag:{},
-  artByCategory:{},
-  artByType:{},
-  artByKeywords:{},
-  archive:{},
+  detail: {},
+  hot: [],
+  artByTag: {},
+  artByCategory: {},
+  // artByType:{},
+  artByKeywords: {},
+  archive: {},
   artToc: []
 })
 
@@ -22,19 +22,21 @@ export const mutations = {
   // 获取文章列表
   GET_ART_SUCCESS(state, data) {
     state.list = data
+    console.log('获取文章列表', data)
   },
   // 获取文章详情
   GET_ART_DETAIL_SUCCESS(state, data) {
     state.detail = data
+    console.log('获取文章详情', data)
   },
   // 获取文章详情
   GET_ART_HOT_SUCCESS(state, data) {
     state.hot = data
   },
   // 根据导航栏获取文章
-  GET_ART_BY_TYPE_SUCCESS(state, data) {
-    state.list = data
-  },
+  // GET_ART_BY_TYPE_SUCCESS(state, data) {
+  //   state.list = data
+  // },
   // 根据标签获取文章
   GET_ART_BY_TAG_SUCCESS(state, data) {
     state.artByTag = data

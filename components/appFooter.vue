@@ -1,54 +1,85 @@
 <template>
   <footer class="app-footer">
-    <p>Powered By <a href="https://zh.nuxtjs.org/" rel="nofollow" target="_blank">Nuxt.js</a>，Designed By FK</p>
-    <p class="copyright">Copyright© 2021-{{currentYear}} <a href="https://github.com/fang-kang" target="_blank">
-      凌烟FK</a></p>
-    <div style="height: 17px;">
-      <a target="_blank" rel="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50011702500392"
-         style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-        <img src="@/assets/images/beian.png" style="float:left;"/>
-        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">渝公网安备
-          50011702500392号</p></a>
+    <p>
+      Powered By
+      <a href="https://zh.nuxtjs.org/" rel="nofollow" target="_blank">Nuxt.js</a
+      >，Designed By FK
+    </p>
+    <p class="copyright">
+      Copyright© 2021-{{ currentYear }}
+      <a href="https://github.com/fang-kang" target="_blank"> 凌烟FK</a>
+    </p>
+    <div class="site">
+      <a
+        target="_blank"
+        rel="nofollow"
+        :href="siteConfig.psr"
+        style="
+          display: inline-block;
+          text-decoration: none;
+          height: 20px;
+          line-height: 20px;
+        "
+      >
+        <img
+          src="@/assets/images/beian.png"
+          style="float: left; margin-right: 3px"
+        />
+        <p
+          style="
+            float: left;
+            height: 20px;
+            line-height: 20px;
+            margin: 0px 0px 0px 5px;
+            color: #939393;
+          "
+        >
+          {{ siteConfig.icp }}
+        </p></a
+      >
     </div>
-    <p><a href="http://beian.miit.gov.cn" rel="nofollow" target="_blank">渝ICP备17014610号</a></p>
   </footer>
 </template>
 
 <script>
-  export default {
-    name: 'appFooter',
-    data() {
-      return {
-        currentYear: new Date().getFullYear()
-      }
+export default {
+  name: "appFooter",
+  data() {
+    return {
+      currentYear: new Date().getFullYear(),
+    };
+  },
+  computed: {
+    siteConfig() {
+      return this.$store.state.config.config;
     },
-    computed:{
-      siteConfig(){
-        return this.$store.state.config.config
-      },
-    },
-    methods: {
-
-    },
-    mounted() {
-
-    }
-  }
+  },
+  methods: {},
+  mounted() {},
+};
 </script>
 
 <style scoped lang="scss">
-.app-footer{
+.site {
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  margin-top: 6px;
+}
+.app-footer {
   text-align: center;
   font-size: 12px;
   background-color: #fff;
   padding: 10px 0;
   min-width: 320px;
+  line-height: 24px;
   color: #939393;
-  a{
+  a {
     color: #939393;
   }
-  .copyright{
-    a{
+  .copyright {
+    a {
       font-style: italic;
     }
   }
