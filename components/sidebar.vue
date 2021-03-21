@@ -17,6 +17,12 @@
               <a href="https://github.com/fang-kang" target="_blank"> 凌烟FK</a>
             </div>
           </div>
+          <div class="contact-method clearfix">
+            <div class="contact-label">Gitee</div>
+            <div class="contact-detail">
+              <a href="https://gitee.com/fang-kang" target="_blank"> 凌烟FK</a>
+            </div>
+          </div>
           <div class="wx">
             <p style="color: #333">微信</p>
             <img

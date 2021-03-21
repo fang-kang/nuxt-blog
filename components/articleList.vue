@@ -22,7 +22,9 @@
                 {{ item.abstract }}
               </div>
               <div class="article-statistics">
-                <span>{{ item.cdate.split(" ")[0] }}</span
+                <span>{{
+                  $dayjs(item.cdate).format("YYYY-MM-DD hh:mm:ss")
+                }}</span
                 >·<span
                   ><svgicon class="" name="view"></svgicon>{{ item.pv }}</span
                 >·
@@ -40,6 +42,8 @@
       </section>
     </template>
     <el-pagination
+      background
+      hide-on-single-page
       style="text-align: center; margin-top: 15px"
       v-if="articleList.total > 0"
       @current-change="getMoreArt"

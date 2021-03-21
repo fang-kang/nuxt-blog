@@ -63,7 +63,7 @@ export function addReplyComment(params) {
 }
 // 获取评论
 export function getComment(params) {
-  return post(commentPrefix + '/getComment', params).then(res => res)
+  return post(commentPrefix + '/getArtComment', params).then(res => res)
 }
 // 获取友链
 export function getlinkList(params) {

@@ -172,16 +172,14 @@
               class="clearfix comment-user"
               v-if="item.from_uweb != null && item.from_uweb.length > 0"
             >
-              <img :src="item.from_uavatar" alt="item.from_uname" /><span>{{
-                item.from_uname
-              }}</span>
+              <span>{{ item.from_uname }}</span>
             </a>
             <div v-else class="clearfix comment-user nocursor">
-              <img :src="item.from_uavatar" alt="item.from_uname" /><span>{{
-                item.from_uname
-              }}</span>
+              <span>{{ item.from_uname }}</span>
             </div>
-            <div class="comment-time">{{ item.cdate }}</div>
+            <div class="comment-time">
+              {{ $dayjs(item.cdate).format("YYYY-MM-DD hh:mm:ss") }}
+            </div>
           </div>
           <div class="comment-content" id="r-md-preview">
             <div
@@ -195,14 +193,10 @@
                   class="clearfix comment-user"
                   v-if="item.to_uweb != null && item.to_uweb.length > 0"
                 >
-                  <img :src="item.to_uavatar" alt="item.from_uname" /><span>{{
-                    item.to_uname
-                  }}</span>
+                  <span>{{ item.to_uname }}</span>
                 </a>
                 <div v-else class="clearfix comment-user nocursor">
-                  <img :src="item.to_uavatar" alt="item.from_uname" /><span>{{
-                    item.to_uname
-                  }}</span>
+                  <span>{{ item.to_uname }}</span>
                 </div>
                 <div class="comment-time">{{ item.oldCdate }}</div>
               </div>
@@ -233,6 +227,7 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
 import { mdRender } from "@/utils/utils";
 import htmlparser from "htmlparser2";
 
@@ -360,52 +355,19 @@ export default {
       };
       localStorage.setItem("commentUserInfo", JSON.stringify(useInfo));
       this.$refs[formName].validate((valid) => {
+        console.log("sss", this.artComment);
         if (valid && this.urlIsCorrect) {
-          let _that = this;
-          let result = "";
-          // let parser = new htmlparser.Parser(
-          //   {
-          //     onopentag: function (name, attribs) {
-          //       if (
-          //         name === "script" ||
-          //         name === "style" ||
-          //         name === "img" ||
-          //         name === "frame" ||
-          //         name === "iframe"
-          //       ) {
-          //         // alert('小朋友不乖哟，不要乱输入！')
-          //       }
-          //     },
-          //     ontext: function (text) {
-          //       result += text;
-          //     },
-          //     onclosetag: function (tagname) {
-          //       if (
-          //         tagname === "script" ||
-          //         tagname === "style" ||
-          //         tagname === "frame" ||
-          //         tagname === "iframe"
-          //       ) {
-          //       }
-          //     },
-          //   },
-          //   { decodeEntities: true }
-          // );
-          // parser.write(this.artComment.content);
-          // parser.end();
-          // this.artComment.content = result;
-          if (
-            !this.artComment.content ||
-            !this.artComment.content.replace(/\s/g, "")
-          )
-            return alert("内容就这样了？？！");
           this.committing = true;
           if (this.commentType == "comment") {
             this.artComment.articleURL = window.location.href;
+            console.log("aaa");
             this.$store.dispatch("addComment", this.artComment).then((res) => {
               if (res.code === 200) {
-                this.$message.success(res.message);
+                this.$message.success("评论成功");
+                localStorage.removeItem("commentUserInfo");
                 this.artComment.content = "";
+                this.artComment.nickname = "";
+                this.artComment.email = "";
                 this.$refs.commentEdit.innerHTML = "";
                 this.$store.dispatch("getComment", { id: this.commentId.id });
                 let el = document.getElementById("commentSuccess");
@@ -414,22 +376,27 @@ export default {
                   this.committing = false;
                 }, 500);
               } else {
-                this.$message.error(res.message);
+                this.$message.error(res.msg);
               }
             });
           } else {
+            console.log(this.commentType, "---------");
             this.replyForm.artId = this.commentId.id;
             this.replyForm.email = this.artComment.email;
             this.replyForm.nickname = this.artComment.nickname;
             this.replyForm.webUrl = this.artComment.webUrl;
             this.replyForm.content = this.artComment.content;
             this.replyForm.articleURL = window.location.href;
+            console.log(this.replyForm, "replyContent-bg");
             this.$store
               .dispatch("addReplyComment", this.replyForm)
               .then((res) => {
                 if (res.code === 200) {
-                  this.$message.success(res.message);
+                  this.$message.success("回复成功");
+                  localStorage.removeItem("commentUserInfo");
                   this.artComment.content = "";
+                  this.artComment.nickname = "";
+                  this.artComment.email = "";
                   this.$refs.commentEdit.innerHTML = "";
                   this.toReply = "";
                   this.commentType = "comment";
@@ -440,7 +407,7 @@ export default {
                     this.committing = false;
                   }, 500);
                 } else {
-                  this.$message.error(res.message);
+                  this.$message.error(res.msg);
                 }
               });
           }
@@ -454,6 +421,7 @@ export default {
     },
     // 回复评论
     replyComment(item) {
+      console.log(item);
       this.commentType = "reply";
       this.toReply = item.from_uname;
       let el = document.getElementById("tohere");

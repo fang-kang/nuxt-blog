@@ -4,6 +4,7 @@
  *@Author: fk
  *@Date: 2021-03-20 23:24:39
 */
+import Vue from 'vue';
 export const state = () => ({
 
   // 文章列表
@@ -21,13 +22,16 @@ export const state = () => ({
 export const mutations = {
   // 获取文章列表
   GET_ART_SUCCESS(state, data) {
+    data.data.forEach(i => {
+      Vue.set(i, 'cdate', Number(i.cdate));
+    })
     state.list = data
-    console.log('获取文章列表', data)
+    // console.log('获取文章列表', data)
   },
   // 获取文章详情
   GET_ART_DETAIL_SUCCESS(state, data) {
     state.detail = data
-    console.log('获取文章详情', data)
+    // console.log('获取文章详情', data)
   },
   // 获取文章详情
   GET_ART_HOT_SUCCESS(state, data) {

@@ -131,7 +131,7 @@ export const actions = {
     const res = await service.getlinkList().catch(err => {
       console.log(err)
     })
-    console.log('获取友链',res)
+    // console.log('获取友链',res)
     if (res && res.code === 200) {
       commit('link/GET_LINK_SUCCESS', res.data)
     }

@@ -79,8 +79,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/dayjs',
   ],
-
+  dayjs: {
+    locales: ['en', 'ja'],
+    defaultLocale: 'en'
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 

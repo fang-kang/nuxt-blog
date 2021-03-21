@@ -130,11 +130,11 @@ export default {
           line-height: 30px;
           list-style: none;
           display: flex;
-          align-items: center;
+          // align-items: center;
           .date {
             padding-right: 10px;
             display: inline-block;
-            width: 88px;
+            // width: 88px;
           }
           .views {
             margin-left: auto;

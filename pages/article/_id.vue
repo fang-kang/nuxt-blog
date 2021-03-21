@@ -14,16 +14,20 @@
         <p>
           文章归类于：
           <nuxt-link :to="`/category/${articleDetail.category}`">{{
-            articleDetail.category
+            articleDetail.categoryname
           }}</nuxt-link>
         </p>
         <p class="art_tag">
           文章标签：
-          <nuxt-link
+          <!-- <nuxt-link
             :to="`/tag/${item}`"
             v-for="(item, index) in tagList"
             :key="index"
             >#{{ item }}</nuxt-link
+          > -->
+          <nuxt-link
+            :to="`/tag/${articleDetail.tag}`"
+            >#{{ articleDetail.tagname }}</nuxt-link
           >
         </p>
         <p class="art_tag">
@@ -129,7 +133,7 @@ export default {
       return this.$store.state.comment.list;
     },
     tagList() {
-      let tag = this.$store.state.article.detail.tag;
+      let tag = this.$store.state.article.detail.tagname;
       if (tag) {
         return tag.split(",");
       }
