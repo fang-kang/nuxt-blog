@@ -10,11 +10,11 @@
       </div>
       <div class="comment_tips">
         <p style="font-size: 16px; color: #000; font-weight: bold">提示：</p>
-        <p>评论会在审核通过后显示在下方</p>
+        <!-- <p>评论会在审核通过后显示在下方</p> -->
         <p>昵称必填，用于展示在评论中</p>
         <p>邮箱必填，不会公开展示，方便及时收到回复</p>
         <p>
-          网址选填，方便看到的人去访问,请完整填写,例如(http://www.brandhuang.com)
+          网址选填，方便看到的人去访问,请完整填写,例如(http://nuxt.fangkang.xyz)
         </p>
       </div>
       <div class="comment_form">
