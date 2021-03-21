@@ -55,7 +55,7 @@ import "viewerjs/dist/viewer.css";
 import marked from "marked";
 import emoji from "node-emoji";
 import hljs from "highlight.js";
-import 'highlight.js/styles/atom-one-dark.css';
+// import 'highlight.js/styles/atom-one-dark.css';
 const renderer = new marked.Renderer();
 let tocs = [];
 
