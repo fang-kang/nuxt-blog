@@ -31,19 +31,11 @@ pre:after {
   display: block;
   overflow-x: auto;
   position: relative;
-  padding-top: 2em !important;
   padding: 20px;
   background: #272822;
   color: #ddd;
   border-radius: 6px;
   margin: 20px 0;
-  // padding: 10px;
-  // overflow: auto;
-  // margin: 20px 0;
-  // font-size: 13px;
-  // // color: #4d4d4c;
-  // color:#ccc !important;
-  // background-color: #f6f8fa !important;
   line-height: 1.6;
 }
 
@@ -112,12 +104,6 @@ pre:after {
 
 #r-md-preview p>code,
 #r-md-preview li>code {
-  // background-color: #fff5f5;
-  // color: #ff502c;
-  // padding: 2px 8px;
-  // font-weight: bold;
-  // border-radius: 3px;
-  // margin: 0 3px;
   color: #e96900 !important;
   background-color: #f8f8f8 !important;
   margin: 0 2px !important;
